@@ -22,19 +22,21 @@ window.FARM_DATA = {
   // fit:'contain'은 포스터·카드처럼 잘리면 안 되는 이미지에, fit:'cover'는 실제 현장 사진에 사용합니다.
   // (미지정 시 01_logo·03_about·04_farm·05_brand·06_characters는 contain, 나머지는 cover)
   // wide:true는 BRAND 갤러리에서 가로 한 줄을 다 쓰는 판형입니다(캐릭터 기본형 시트처럼 가로로 긴 자료).
+  // order: 카드 노출 순서를 고정합니다(작은 수가 앞). FIELD NOTES·프로젝트 갤러리 모두 이 순서를 먼저 따릅니다.
+  //        캐릭터는 퍼뜨기 → 쑤담이(메인 2종) → 당고매 → 꿀고매 → 쫀고매 순서로 항상 고정입니다.
   images:{
     'images/03_about/창업자소개.png':{title:'창업자 소개',description:'밭을 일구고 농장을 돌보고, 수확한 농산물까지 하나씩 직접 확인합니다.'},
     'images/03_about/fm_jjeongi.jpg':{title:'FM 쩡이',description:'꽃폈네 농장의 모든 판단과 승인을 담당하는 총괄 농장관리자 캐릭터입니다.'},
     'images/04_farm/품종소개.png':{title:'품종 소개',category:'farm',description:'계절과 농장에 맞는 품종을 골라 정성껏 키웁니다.'},
     'images/05_brand/꽃폈네 스토리박스.png':{title:'꽃폈네 스토리박스',category:'brand',description:'농산물과 함께 농장의 한 철 이야기를 담아 보냅니다.'},
     'images/05_brand/꽃폈네 캐릭터 5종.jpg':{title:'꽃폈네 캐릭터 5종',category:'brand',fit:'contain',story:false,wide:true,description:'퍼뜨기·쑤담이와 쫀고매·꿀고매·당고매 — 다섯 캐릭터의 기본형과 표정을 한 장에 담았습니다.'},
-    'images/06_characters/퍼뜨기.jpg':{title:'퍼뜨기',category:'brand',fit:'contain',description:'사랑을 퍼뜨리고 싶어 머리에 하트 고구마잎을 단 감자입니다.'},
-    'images/06_characters/쑤담이.jpg':{title:'쑤담이',category:'brand',fit:'contain',description:'감자꽃을 머리에 꽂은, 보기만 해도 쓰다듬어 주고 싶은 감자입니다.'},
-    'images/06_characters/쫀고매.jpg':{title:'쫀고매',category:'brand',fit:'contain',description:'노란 고구마. 쫀득한 속처럼 말랑한 미소를 가졌습니다.'},
-    'images/06_characters/꿀고매.jpg':{title:'꿀고매',category:'brand',fit:'contain',description:'노릇하게 구운 군고구마. 꿀처럼 달콤한 속이 자랑입니다.'},
-    'images/06_characters/당고매.jpg':{title:'당고매',category:'brand',fit:'contain',description:'분홍 고구마. 갓 캐낸 밭의 달콤함을 담았습니다.'},
-    'images/08_story/퍼뜨기와 쑤담이.png':{category:'brand',fit:'contain'},
-    'images/08_story/농부가 된 퍼뜨기와 쑤담이.png':{category:'brand',fit:'contain'},
+    'images/06_characters/퍼뜨기.jpg':{title:'퍼뜨기',category:'brand',fit:'contain',order:1,description:'사랑을 퍼뜨리고 싶어 머리에 하트 고구마잎을 단 감자입니다.'},
+    'images/06_characters/쑤담이.jpg':{title:'쑤담이',category:'brand',fit:'contain',order:2,description:'감자꽃을 머리에 꽂은, 보기만 해도 쓰다듬어 주고 싶은 감자입니다.'},
+    'images/06_characters/당고매.jpg':{title:'당고매',category:'brand',fit:'contain',order:3,description:'분홍 고구마. 갓 캐낸 밭의 달콤함을 담았습니다.'},
+    'images/06_characters/꿀고매.jpg':{title:'꿀고매',category:'brand',fit:'contain',order:4,description:'노릇하게 구운 군고구마. 꿀처럼 달콤한 속이 자랑입니다.'},
+    'images/06_characters/쫀고매.jpg':{title:'쫀고매',category:'brand',fit:'contain',order:5,description:'노란 고구마. 쫀득한 속처럼 말랑한 미소를 가졌습니다.'},
+    'images/08_story/퍼뜨기와 쑤담이.png':{category:'brand',fit:'contain',order:6},
+    'images/08_story/농부가 된 퍼뜨기와 쑤담이.png':{category:'brand',fit:'contain',order:7},
     // 06_characters에 같은 사진이 있어 FIELD NOTES에는 한 번만 보이도록 합니다.
     'images/08_story/퍼뜨기.jpg':{story:false},
     'images/08_story/쑤담이.jpg':{story:false},
