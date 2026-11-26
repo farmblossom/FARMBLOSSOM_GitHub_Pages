@@ -34,5 +34,5 @@ window.FARM_DATA = {
     'images/08_story/fm_jjeongi.jpg':{story:false}
   },
   // 실제 공개용 연락처만 입력하세요. 빈 값은 링크를 표시하지 않습니다.
-  contact:{email:'farm_blossom@naver.com', instagram:'https://www.instagram.com/_farmblossom', homepage:'https://farmblossom.kr', sns:'', shop:'', booking:'', os:''}
+  contact:{email:'farm_blossom@naver.com', instagram:'https://www.instagram.com/_farmblossom', homepage:'https://farmblossom.kr', blog:'https://blog.naver.com/farm_blossom', shop:'https://smartstore.naver.com/farmblossom', sns:'', booking:'', os:''}
 };
