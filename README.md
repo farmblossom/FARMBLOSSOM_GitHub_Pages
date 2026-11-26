@@ -1,25 +1,26 @@
 # 꽃폈네 FARMBLOSSOM | 공식 브랜드 포트폴리오
 
-HTML5 · CSS3 · Vanilla JS 기반 원페이지입니다. 외부 라이브러리나 빌드 설치가 필요 없습니다. 원본 로고·캐릭터·농장 사진 및 색상표가 제공되지 않아 초기에는 텍스트 워드마크와 추상적인 색상 대체 영역만 표시합니다. 공식 연락처도 비워 두었습니다. 사진을 추가하면 실제 이미지로 교체됩니다. 초기 컬러는 임시 자연 계열이며 `css/style.css`의 `:root`에서 변경할 수 있습니다.
+HTML5 · CSS3 · Vanilla JS 기반 원페이지입니다. 외부 라이브러리나 빌드 설치가 필요 없습니다. 공개되는 폴더는 `FARMBLOSSOM_GitHub_Pages/` 하나이며, 이 안내 문서는 저장소 루트에만 두어 공개 사이트에 노출되지 않습니다. 로고·캐릭터·농장 사진과 공식 연락처가 반영되어 있고, 사진을 넣으면 자동으로 목록에 들어갑니다. 색상은 `css/style.css`의 `:root`에서 변경할 수 있습니다.
 
 ## 1. 폴더 구조
 
 ```
-index.html
-README.md
-css/style.css, css/responsive.css
-js/data.js, js/main.js, js/images-fallback.js (자동 생성)
-images.json (자동 생성)
-images/01_logo/        공식 로고
-images/02_hero/        메인 사진
-images/03_about/       소개
-images/04_farm/        농업
-images/05_brand/       상품·패키지
-images/06_characters/  캐릭터·굿즈
-images/07_innovation/  OS·SW·AI
-images/08_story/       활동 기록
-scripts/generate-images.mjs
-.github/workflows/deploy.yml
+README.md                          저장소 안내 (공개 사이트에는 노출되지 않음)
+.github/workflows/deploy.yml       GitHub Pages 배포 설정
+FARMBLOSSOM_GitHub_Pages/          ← 배포되는 웹 폴더 (이 안의 파일만 공개됨)
+  index.html
+  css/style.css, css/responsive.css
+  js/data.js, js/main.js, js/images-fallback.js (자동 생성)
+  images.json (자동 생성)
+  images/01_logo/        공식 로고
+  images/02_hero/        메인 사진
+  images/03_about/       소개
+  images/04_farm/        농업
+  images/05_brand/       상품·패키지
+  images/06_characters/  캐릭터·굿즈
+  images/07_innovation/  OS·SW·AI
+  images/08_story/       활동 기록
+  scripts/generate-images.mjs
 ```
 
 ## 2. 컴퓨터에서 미리 보기
@@ -33,6 +34,7 @@ scripts/generate-images.mjs
 ## 3. 사진 관리
 
 - 폴더에 공개 승인한 JPG, JPEG, PNG, WEBP, GIF, SVG 파일을 넣습니다. 삭제·교체도 동일하게 처리됩니다. 한글·공백 이름 지원, 하위 폴더 지원. 숨김 파일과 심볼릭 링크는 제외됩니다.
+- 사진은 카드 비율(4:5)에 맞춰 보여줍니다. 포스터·카드처럼 글자나 그림이 잘리면 안 되는 이미지는 원본이 잘리지 않도록 `contain`, 실제 현장 사진은 `cover`. 기본값은 `01_logo`·`03_about`·`04_farm`·`05_brand`·`06_characters`가 contain, 나머지가 cover이며 `data.js`의 사진별 `fit`으로 바꿀 수 있습니다.
 - 대표 사진은 `00_cover.jpg` 또는 `cover.png` 등의 이름을 사용합니다. 대표 후보가 여럿이면 정렬상 첫 파일이 우선입니다. 없는 경우 이름순 첫 사진입니다. 브랜드·캐릭터가 담긴 폴더는 썸네일에서 원본 비율을 보존합니다. 원본은 수정하지 않습니다.
 - STORY에는 FARM/BRAND/캐릭터/INNOVATION/08_story의 이미지가 자동 표시됩니다(cover 파일 제외). 폴더 분류를 적용하고, 08_story는 파일명 `2026-11-20_농업_농장정비.jpg`처럼 날짜 뒤에 `농업`, `브랜드`, `기술`, `창업`을 쓰면 해당 분류로 들어갑니다. 분류가 없으면 전체에서만 보이며 날짜가 없으면 날짜 없는 기록으로 정렬합니다. 파일명이 제목 기본값입니다.
 - 날짜는 `YYYY-MM-DD`, `YYYYMMDD` 또는 점/밑줄 구분을 파일명 앞에 쓰면 인식합니다. 날짜를 모르면 입력하지 마세요.
@@ -42,7 +44,7 @@ scripts/generate-images.mjs
 
 `js/data.js`의 `projects`에서 설명과 상태별 항목을 변경할 수 있습니다. 초기 사업 상태는 제공된 요구사항을 기반으로 작성한 분류이므로 공식 공개 전에 확인하세요. 2027년 봄감자 40팀은 목표이며 실적이 아닙니다.
 
-사진별 상세 정보는 선택 사항입니다. `images:{}` 안에 정확한 상대경로(한글과 공백 그대로)를 키로 입력합니다.
+사진별 상세 정보는 선택 사항입니다. `images:{}` 안에 정확한 상대경로(한글과 공백 그대로)를 키로 입력합니다. `fit:'contain'`(원본을 자르지 않고 다 보이기), `fit:'cover'`(영역을 꽉 채우고 자르기)도 여기서 사진마다 지정합니다.
 
 ```js
 images: {
@@ -73,6 +75,9 @@ images: {
 - 로고가 잘못됨: 01_logo에는 승인된 공식 로고만 넣고 `00_cover`로 지정하세요.
 - 새 이미지가 Story 특정 필터에 안 보임: 파일명 분류 접두사 또는 `data.js`의 category 확인.
 
-## 7. 검수 범위
+## 7. 공개 전 확인 목록
 
-`TEST-REPORT.md` 참조. 실제 GitHub 저장소의 권한 및 Pages 설정, 실제 원본 이미지의 디자인 적합성, 공식 연락처는 배포 담당자의 확인이 필요합니다.
+- [ ] `images/`에 공개 승인한 사진만 있는지 (개인정보·학생 얼굴·내부 문서·위치 정보 제외)
+- [ ] `js/data.js`의 사업 상태·문구가 최신인지
+- [ ] 폰·태블릿에서 화면 확인 (헤더 로고, 카드, 모달, 연락처)
+- [ ] Actions 탭의 배포 작업 성공 여부와 공개 주소의 새 화면 확인

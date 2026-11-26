@@ -19,13 +19,15 @@ window.FARM_DATA = {
   ],
   filters:[['all','전체'],['farm','농업'],['brand','브랜드'],['tech','기술'],['startup','창업']],
   // 사진 제목·설명·분류. 키는 images/ 아래 실제 상대 경로와 같아야 합니다.
+  // fit:'contain'은 포스터·카드처럼 잘리면 안 되는 이미지에, fit:'cover'는 실제 현장 사진에 사용합니다.
+  // (미지정 시 01_logo·03_about·04_farm·05_brand·06_characters는 contain, 나머지는 cover)
   images:{
     'images/03_about/창업자소개.png':{title:'창업자 소개',description:'밭을 일구고 농장을 돌보고, 수확한 농산물까지 하나씩 직접 확인합니다.'},
     'images/03_about/fm_jjeongi.jpg':{title:'FM 쩡이',description:'꽃폈네 농장의 모든 판단과 승인을 담당하는 총괄 농장관리자 캐릭터입니다.'},
     'images/04_farm/품종소개.png':{title:'품종 소개',category:'farm',description:'계절과 농장에 맞는 품종을 골라 정성껏 키웁니다.'},
     'images/05_brand/꽃폈네 스토리박스.png':{title:'꽃폈네 스토리박스',category:'brand',description:'농산물과 함께 농장의 한 철 이야기를 담아 보냅니다.'},
-    'images/08_story/퍼뜨기와 쑤담이.png':{category:'brand'},
-    'images/08_story/농부가 된 퍼뜨기와 쑤담이.png':{category:'brand'},
+    'images/08_story/퍼뜨기와 쑤담이.png':{category:'brand',fit:'contain'},
+    'images/08_story/농부가 된 퍼뜨기와 쑤담이.png':{category:'brand',fit:'contain'},
     // 06_characters에 같은 사진이 있어 FIELD NOTES에는 한 번만 보이도록 합니다.
     'images/08_story/퍼뜨기.jpg':{story:false},
     'images/08_story/쑤담이.jpg':{story:false},
